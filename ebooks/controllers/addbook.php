@@ -1,9 +1,13 @@
+
 <?php 
 
-include('../models/books.php');
+
+/*This file uploads the ebook and adds the entry into the database.*/
+
+include('../models/books.php'); // for books class
 
 
-if(isset($_POST['name']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['pages']) ){
+if(isset($_POST['name']) && isset($_POST['author']) && isset($_POST['category']) && isset($_POST['pages']) ){ //checking whether the values are set or not i.e. form is submitted or not
 
 	$name = mysql_real_escape_string($_POST['name']);
 	$author = mysql_real_escape_string($_POST['author']);
@@ -15,14 +19,18 @@ if(isset($_POST['name']) && isset($_POST['author']) && isset($_POST['category'])
 	$pages = mysql_real_escape_string($_POST['pages']);
 
 	$size = 1;
-	$newbook = new books($name, $author, $isbn,$category,$pages,$size);
+	$newbook = new books($name, $author, $isbn,$category,$pages,$size); // creating a new book object
 
 	
-	if(!$newbook->uploadBook()){
+
+	if(!$newbook->uploadBook()){  // inserting and uploading the book.
 		echo "file uploaded";
 	}else{
 		echo "file upload error";
 	}
+
+
+	
 	
 
 }else{

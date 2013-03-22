@@ -3,7 +3,7 @@
 //Class to connect, select, and close the database
 
 class db{
-	private $host,$username,$pass;
+	private $host,$username,$pass; // server address, username, pass
 
 	public function db($_host,$_username,$_pass){
 			$this->host = $_host;
@@ -12,7 +12,7 @@ class db{
 	}
 
 	public function connect(){
-		$con = mysql_connect($this->host, $this->username, $this->pass);
+		$con = mysql_connect($this->host, $this->username, $this->pass); 
 		if(!$con){
 			// unsuccessful
 			return -1;

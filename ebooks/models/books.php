@@ -6,13 +6,15 @@
 
 include '../../models/db.php';
 include '../../models/dbinfo.php';
+
 include 'constants.php';
 define ('SITE_ROOT', realpath(dirname(__FILE__)));
 class books
 {
-	private $name, $author, $isbn, $category, $pages,$size;
+	public $name, $author, $isbn, $category, $pages,$size,$downloads,$db,$con,$link;
+
 	
-	function __construct($_name, $_author,$_isbn='',$_category='',$_pages='',$_size='')
+	function __construct($_name='', $_author='',$_isbn='',$_category='',$_pages='',$_size='')
 	{
 		$this->name = $_name;
 		$this->author = $_author;
@@ -20,22 +22,54 @@ class books
 		$this->category = $_category;
 		$this->pages = $_pages;
 		$this->size = $_size;
+		$this->db = new db(HOSTNAME,DBUSER,DBPASS);
+		$this->con = $this->db->connect(DBNAME);
+		
+
+	}
+	function __destruct() {
+		$this->db->close($this->con);
 	}
 
 
 	public function addBook()
 	{
-		$db = new db(HOSTNAME,DBUSER,DBPASS);
-		$con = $db->connect(DBNAME);
-		$query = "INSERT INTO ".DBNAME.".".EBOOK." (`id`, `name`, `author`, `category`, `isbn`, `pages`, `size`, `downloads`) VALUES (NULL, '".$this->name."', '".$this->author."', '".$this->category."', '".$this->isbn."', '".$this->pages."', '".$this->size."', '0');";
+		
+		$query = "INSERT INTO ".DBNAME.".".EBOOK_DB." (`id`, `name`, `author`, `category`, `isbn`, `pages`, `size`, `downloads`) VALUES (NULL, '".$this->name."', '".$this->author."', '".$this->category."', '".$this->isbn."', '".$this->pages."', '".$this->size."', '0');";
 
-		//echo $query;
-		if($result=$db->query($query,$con)){
+		$db1 = $this->db;
+		if($result=$db1->query($query,$this->con)){
 			//echo "successful";
 			return mysql_insert_id();
 		}else{
 			die(mysql_error());
 		}
+	}
+
+	public function getBook($value='')
+	{
+		$query = "SELECT * FROM ".DBNAME.".".EBOOK_DB." WHERE `id`='".$value."';";
+		//echo $query;
+
+		$result=$this->db->query($query,$this->con);
+		if($row = mysql_fetch_assoc($result)){
+
+			$this->id = $row['id'];
+			$this->name = $row['name'];
+			$this->author = $row['author'];
+			$this->category = $row['category'];
+			$this->isbn = $row['isbn'];
+			$this->pages = $row['pages'];
+			$this->downloads = $row['downloads'];
+			$this->link = EBOOKS_CONTROLLER."download.php?id=".$this->id;
+			return 0;
+
+
+		}else{
+			return -1;
+		}
+		
+
 	}
 
 	public function uploadBook()
@@ -55,8 +89,6 @@ class books
 
 			switch ($mime) {
 				case "application/pdf":
-				case "application/msword":
-				case "text/plain":
 						$ok = true;
 						break;
 				default:
