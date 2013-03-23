@@ -5,7 +5,7 @@
 */
 
 include '../../models/db.php';
-include '../../models/dbinfo.php';
+//include '../../models/dbinfo.php';
 
 include 'constants.php';
 define ('SITE_ROOT', realpath(dirname(__FILE__)));

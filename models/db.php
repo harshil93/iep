@@ -1,11 +1,11 @@
 <?php 
 
 //Class to connect, select, and close the database
-
+include 'dbinfo.php';
 class db{
 	private $host,$username,$pass; // server address, username, pass
 
-	public function db($_host,$_username,$_pass){
+	public function db($_host=HOSTNAME,$_username=DBUSER,$_pass=DBPASS){
 			$this->host = $_host;
 			$this->username = $_username;
 			$this->pass = $_pass;
@@ -26,7 +26,7 @@ class db{
 
 	}
 
-	public function selectdb($value='')
+	public function selectdb($value=DBNAME)
 	{
 		if(!$ret = mysql_select_db($value)){
 			return -1;
