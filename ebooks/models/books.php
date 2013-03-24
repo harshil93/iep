@@ -72,6 +72,19 @@ class books
 
 	}
 
+	public function getComments($id='')
+	{
+		$query = "SELECT * FROM ".DBNAME.".".EBOOK_COMMENTS_TBL." WHERE id='".$id."' ORDER BY `timestamp` DESC;";
+		$result = $this->db->query($query, $this->con);
+		$comments=NULL;
+		$i=0;
+		while($row = mysql_fetch_array($result)){
+			$comments[$i]= $row;
+			$i++;
+		}
+		return $comments;
+	}
+
 	public function uploadBook()
 	{
 		if ($_FILES["file"]["error"] > 0)

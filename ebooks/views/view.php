@@ -22,7 +22,7 @@
 					data: dataString,
 					cache: false,
 					success: function(html){
-						$("ol#update").append(html);
+						$("ol#update").prepend(html);
 						$("ol#update li:last").fadeIn("slow");
 						
 					}
@@ -38,8 +38,7 @@
 <?php echo $book->isbn;?> <br>
 <?php echo $book->pages;?> <br>
 <?php echo $book->link; ?>
-<ol id="update" class="timeline">
-</ol>
+
 <div >
 	<form action="#" method="post">
 
@@ -47,6 +46,19 @@
 		<input type="submit" class="submit" value=" Submit Comment " />
 	</form>
 </div>
+<ol id="update" class="timeline" >
+	<?php 
+	if($comments)
+		foreach ($comments as $row) {
+			?> <li class="box">
+				<?php echo $row['name']."<br>"; ?>
+				<?php echo $row['comment']; ?>
+			</li> <?php
+		}
+
+
+	 ?>
+</ol>
 
 
 </body>

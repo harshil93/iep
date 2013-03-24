@@ -1,6 +1,6 @@
 <?php 
 include '../../models/db.php';
-include '../../models/dbinfo.php';
+
 /**
 * A search class 
 */

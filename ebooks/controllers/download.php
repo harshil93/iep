@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
 
 
 	header('Content-type: application/pdf');
-	header('Content-disposition: attachment;filename='.$book->name.'.pdf');
+	header('Content-disposition: attachment;filename='.urlencode($book->name).'.pdf');
 	echo $contents;
 
 }

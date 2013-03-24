@@ -11,7 +11,7 @@ if($_POST)
 	$id = 7;
 	$comment=$_POST['comment'];
 	$userid = 1;
-	$query = "INSERT INTO ".DBNAME.".".EBOOK_COMMENTS_TBL."(`id`,`comment`,`userid`) values('".$id."','".$comment."','".$userid."');";
+	$query = "INSERT INTO ".DBNAME.".".EBOOK_COMMENTS_TBL."(`id`,`comment`,`userid`,`name`) values('".$id."','".$comment."','".$userid."','".$name."');";
 	$db->query($query,$con);
 	
 }

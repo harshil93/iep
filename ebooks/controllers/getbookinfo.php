@@ -9,11 +9,17 @@ if (isset($_GET['id'])) {
 
 	$book = new books();
 
-	$book->getBook($id);
+	if(!$book->getBook($id)){
+		$comments = $book->getComments($id);
 
 	//$book->link = EBOOKS_CONTROLLER."download.php?id=".$id;
 
 	include '../views/view.php';
+	}else{
+		echo "Wrong id";
+	}
+
+	
 
 
 }
