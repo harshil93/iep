@@ -1,0 +1,2 @@
+hello.c: In function ‘main’:
+hello.c:5:3: error: expected ‘;’ before ‘return’

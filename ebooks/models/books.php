@@ -62,7 +62,13 @@ class books
 			$this->pages = $row['pages'];
 			$this->downloads = $row['downloads'];
 			$this->link = EBOOKS_CONTROLLER."download.php?id=".$this->id;
+
+			$query = "UPDATE ".DBNAME.".".EBOOK_DB." SET `downloads`=`downloads`+1 WHERE `id`='".$this->id."';";
+			//echo $query;
+			$this->db->query($query,$this->con);
+
 			return 0;
+
 
 
 		}else{

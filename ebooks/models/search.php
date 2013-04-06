@@ -18,7 +18,7 @@ class search
 
 	public function searchByCol($table,$column_name,$query)
 	{
-		$query = "SELECT * FROM ".DBNAME.".".$table." WHERE `".$column_name."` = '".$query."';";
+		$query = "SELECT * FROM ".DBNAME.".".$table." WHERE `".$column_name."` LIKE '%".$query."%';";
 		//echo $query;
 		$result=$this->db->query($query,$this->con);
 

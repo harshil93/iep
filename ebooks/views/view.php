@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <html>
 <head>
 	<title><?php echo $book->name;?></title>
@@ -8,7 +9,8 @@
 		{
 			
 			var comment = $("#comment").val();
-			var dataString = 'comment=' + comment;
+			var id  = $("#id").val();
+			var dataString = 'comment=' + comment+'&id='+id;
 			if(comment=='')
 			{
 				alert('Please Give Valid Details');
@@ -43,7 +45,8 @@
 	<form action="#" method="post">
 
 		<textarea id="comment"></textarea><br />
-		<input type="submit" class="submit" value=" Submit Comment " />
+		<input type="hidden" id="id" value= <?php echo '"'.$id.'"'; ?>  placeholder="">
+		<?php if(isset($_SESSION['username'])){ ?><input type="submit" class="submit" value=" Submit Comment " /> <?php }else echo "Login to comment"; ?>
 	</form>
 </div>
 <ol id="update" class="timeline" >

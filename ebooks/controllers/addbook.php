@@ -24,7 +24,7 @@ if(isset($_POST['name']) && isset($_POST['author']) && isset($_POST['category'])
 	
 
 	if(!$newbook->uploadBook()){  // inserting and uploading the book.
-		echo "file uploaded";
+		echo "Book Added Succesfully";
 	}else{
 		echo "file upload error";
 	}
