@@ -49,7 +49,7 @@
       </div>
 
       <div class="span2 offset1 " style="margin-top:4px">
-        <a href="music_upload.html" ><button type="button" class="btn btn-success"><b>Upload</b></button></a>
+        <a href="books.php" ><button type="button" class="btn btn-success"><b>Upload</b></button></a>
       </div> 
 
     </div>
@@ -57,12 +57,13 @@
     <div class="divider" style="margin-top:10px" >
     </div>
     <article class="article" style="margin-top:30px">
-      <div class="page-header">
-        <h2>Most Popular</h2>
-      </div>
+      
       <?php if(isset($_GET['query']) && isset($_GET['col'])){
-    include '../controllers/searchresult.php';
-  } ?>
+        include '../controllers/searchresult.php';
+      }else{
+          echo "<h2>Most Downloaded</h2>";
+          include '../controllers/getMostDownloaded.php';
+      } ?>
       
      
    </div>

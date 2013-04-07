@@ -1,3 +1,3 @@
 <?php
-$score = $points / $attempts;
+$score = 10;
 ?>
