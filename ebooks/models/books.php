@@ -128,6 +128,7 @@ class books
 
 				move_uploaded_file($_FILES["file"]["tmp_name"], EBOOKS_PATH.$new);
 				//echo "Stored in: " . EBOOKS_PATH . $_FILES["file"]["name"];
+				exec("convert ".EBOOKS_PATH.$new." ".EBOOKS_IMAGE.$last_id.'.jpg');
 				return 0;
 			}
 		}

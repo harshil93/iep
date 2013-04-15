@@ -23,7 +23,7 @@
 								<li id="booktitle" style="font-size:16px"><strong><?php echo $row['name']; ?></strong></li>
 								<li id="author"><?php echo $row['author']; ?></li>
 								<li id="category"><?php echo $row['category']; ?></li>
-								<li id="downloads"><a <?php echo "<a href='../controllers/getbookinfo.php?id={$row['id']}'><li>"; ?>Click Here to view more details</a></li>
+								<li id="downloads"> <?php echo "<li><a href='../controllers/getbookinfo.php?id={$row['id']}'>"; ?> Click Here to view more details</a></li>
 							</ul>    
 						</div>
 					</div>

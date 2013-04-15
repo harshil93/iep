@@ -82,7 +82,8 @@
     <?= $theme->get_combined("script") ?>
   </head>
 
-  <body <?= $theme->body_attributes() ?>>
+  <body <?= $theme->body_attributes() ?>
+   
     <?= $theme->page_top() ?>
     <div id="doc4" class="yui-t5 g-view">
       <?= $theme->site_status() ?>
@@ -91,8 +92,8 @@
           <? if ($header_text = module::get_var("gallery", "header_text")): ?>
           <?= $header_text ?>
           <? else: ?>
-          <a id="g-logo" class="g-left" href="<?= item::root()->url() ?>" title="<?= t("go back to the Gallery home")->for_html_attr() ?>">
-            <img width="107" height="48" alt="<?= t("Gallery logo: Your photos on your web site")->for_html_attr() ?>" src="<?= url::file("lib/images/logo.png") ?>" />
+          <a id="g-logo" class="g-left" href="/iep/index.php" title="<?= t("go back to the Gallery home")->for_html_attr() ?>">
+            <img width="300"  alt="<?= t("Gallery logo: Your photos on your web site")->for_html_attr() ?>" src="<?= url::file("lib/images/logo.png") ?>" />
           </a>
           <? endif ?>
           <?= $theme->user_menu() ?>

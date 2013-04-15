@@ -4,7 +4,7 @@
       <div class="navbar navbar-fixed-top">
         <div class="navbar-inner">
           <div class="container">
-            <a href="/iep/views/index.php" class="brand brand-bootbus">IITG Entertainment</a>
+            <a href="/iep/views/index.php" class="brand brand-bootbus"><img src="/iep/views/img/logo.png" style="width:300px"alt=""></a>
             <!-- Below button used for responsive navigation -->
             <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
               <span class="icon-bar"></span>
@@ -39,8 +39,8 @@
                  <li><a href="events.html">Music</a></li>
                  <li><a href="/iep/gallery/index.php">Image Gallery</a></li>
                 <li><a href="faq.html">Coding Portal</a></li>
-                <li><a href="contact_us.html">Contact us</a></li>
-                <?php if(isset($_SESSION['status'])) 
+                <li><a href="/iep/views/contactus.php">Contact us</a></li>
+                <?php if(isset($_SESSION['username'])) 
                           echo "<li><a href='/iep/controllers/logout.php'>Logout</a></li>";
                       else{
 

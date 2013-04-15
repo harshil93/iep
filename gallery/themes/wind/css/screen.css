@@ -19,8 +19,9 @@
  **********************************************************************/
 
 body, html {
-  background-color: #ccc;
+  /*background-color: #ccc;*/
   font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background: url("../images/content.png") repeat scroll 0% 0% transparent;
 }
 
 p {
@@ -390,11 +391,12 @@ td {
 }
 
 #g-banner {
-  background-color: #e8e8e8;
+  /*background-color: #e8e8e8;*/
   border-bottom: 1px solid #ccc;
   min-height: 5em;
   padding: 1em 20px;
   position: relative;
+  background: url('../images/header-footer.png');
 }
 
 #g-content {

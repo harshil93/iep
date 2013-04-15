@@ -1,3 +1,4 @@
+  <?php session_start(); ?>
   <!DOCTYPE html>
   <html lang="en">
   <head>
@@ -5,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Bootbusiness | Short description about company">
     <meta name="author" content="Your name">
-    <title>Bootbusiness | Give unique title of the page here</title>
+    <title>IITG Entertainment</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- Bootstrap responsive -->
@@ -15,6 +16,7 @@
     <link href="css/font-awesome-ie7.css" rel="stylesheet">
     <!-- Bootbusiness theme -->
     <link href="css/boot-business.css" rel="stylesheet">
+    
   </head>
   <body>
     <!-- Start: HEADER -->
@@ -30,7 +32,7 @@
         </div>
 
 
-        <div class="span5">      
+        <div class="span5">       
 
           <form action="index.php" method="get" class="search">
             Search By  <select name="col">
